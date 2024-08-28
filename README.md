@@ -1,6 +1,17 @@
 # library-system-OOP
 Small implementation of library system with OOP
 
+## Compiling and Running the program
+* Compile
+```bash
+javac -d out -sourcepath src src/classes/MinhaClasse.java
+```
+* Run
+```bash
+java -cp out classes.MinhaClasse
+```
+
+
 MATA62 – ENGENHARIA DE SOFTWARE I
 Trabalho Prático
 1. Objetivo
