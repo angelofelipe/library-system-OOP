@@ -1,15 +1,32 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import comando.entrada.Entrada;
+import comando.retorno.RetornoComando;
+import geral.BancoDados;
+import geral.Servidor;
+
+import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-        System.out.printf("Olá e seja bem vindo!");
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        BancoDados.criarBanco();
+
+        AtomicBoolean rodarPrograma = new AtomicBoolean(true);
+        Scanner scanner = new Scanner(System.in);
+        String line;
+        Entrada entrada = new Entrada();
+        Servidor servidor = new Servidor();
+        RetornoComando retorno = null;
+
+        while (rodarPrograma.get()) {
+
+            System.out.println("Digite um comando: ");
+            line = scanner.nextLine();
+            entrada.processarComando(line);
+            retorno = servidor.invocarComando(entrada);
+            retorno.imprimirRetorno(rodarPrograma);
+
         }
+
     }
+
 }
