@@ -2,13 +2,15 @@
 Small implementation of library system with OOP
 
 ## Compiling and Running the program
+Esteja na raiz desse diretório e rode os seguintes comandos para compilar e executar o programa:
 * Compile
 ```bash
-javac -d out -sourcepath src src/classes/MinhaClasse.java
+javac -d out -sourcepath src -cp src $(find src -name "*.java")
 ```
+
 * Run
 ```bash
-java -cp out classes.MinhaClasse
+java -cp out Main
 ```
 
 
