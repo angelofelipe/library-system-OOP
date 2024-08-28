@@ -12,7 +12,12 @@ public class RetornoComando implements IRetornoComando {
     protected Usuario usuario;
     protected Livro livro;
 
-    public RetornoComando(){};
+    public RetornoComando(){
+        estado = null;
+        mensagem = "";
+        usuario = null;
+        livro = null;
+    };
 
     public void imprimirRetorno(AtomicBoolean bool) {
             estado.imprimirRetorno(this);

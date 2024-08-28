@@ -1,10 +1,11 @@
 package comando.retorno.estado;
 
-import comando.retorno.IRetornoComando;
 import comando.retorno.RetornoComando;
 
-public class InSucessoComandoErrado implements EstadoRetorno {
-    public void imprimirRetorno(RetornoComando retornoComando) {
-        System.out.println(retornoComando.getMensagem());
+public class InSucessoComandoErrado extends InSucesso {
+    public void imprimirRetorno(RetornoComando retorno) {
+        System.out.print("Insucesso para concluir comando '");
+        System.out.println(retorno.getMensagem() + "'(" + retorno.getMensagem() + ").");
+        System.out.println("Comando não encontrado, tente novamente...\n");
     }
 }

@@ -18,7 +18,7 @@ public interface IUsuario {
     // Livro metodo qual quantidade de Livros disponíveis - quantosLivrosDisponiveis()
     // Usuario -> tenho reserva e tem livros pra pegar ?
     // Livro -> Qual a quantidade de reservas ?
-//    public RetornoComando pegarLivroEmprestado(Livro livro);
+    public RetornoComando pegarLivroEmprestado(Usuario usuario, Livro livro, RetornoComando retorno);
 
 
 }

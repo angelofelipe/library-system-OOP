@@ -25,6 +25,10 @@ public class FabricaComando {
         return new ConsultarNotificacao();
     }
 
+    public static IComando retornarComandoObservar() {
+        return new Observar();
+    }
+
     public static IComando retornarComandoSair() {
         return new Sair();
     }

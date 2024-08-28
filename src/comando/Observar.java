@@ -9,22 +9,28 @@ import geral.Biblioteca;
 import geral.Livro;
 import usuario.Usuario;
 
-public class ConsultarUsuario implements IComando {
+public class Observar implements IComando {
     @Override
     public RetornoComando executar(Entrada entrada) {
         Biblioteca biblioteca = Biblioteca.getInstance();
         Usuario usuario = biblioteca.encontrarUsuarioPorCodigo(entrada.getParametro0());
+        Livro livro = biblioteca.encontrarLivroPorCodigo(entrada.getParametro1());
 
         // Verificação da entrada
+        RetornoComando retorno = FabricaRetorno.retornarComando();
+        EstadoRetorno estadoRetorno = FabricaEstadoRetorno.inSucessoObservar();
+        retorno.setEstado(estadoRetorno);
+
         if (usuario == null) {
-            RetornoComando retorno = FabricaRetorno.retornarComando();
-            EstadoRetorno estadoRetorno = FabricaEstadoRetorno.inSucessoConsultarUsuario();
             String mensagem = "Este usuario não consta no sistema.";
             retorno.setMensagem(mensagem);
-            retorno.setEstado(estadoRetorno);
+            return retorno;
+        } else if (livro == null) {
+            String mensagem = "Este livro não consta no sistema.";
+            retorno.setMensagem(mensagem);
             return retorno;
         }
 
-        return biblioteca.consultarUsuario(usuario);
+        return biblioteca.observarLivro(usuario, livro);
     }
 }

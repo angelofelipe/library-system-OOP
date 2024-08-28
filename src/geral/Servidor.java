@@ -23,6 +23,7 @@ public class Servidor {
         comandos.put("res", FabricaComando.retornarComandoReservar());
         comandos.put("liv", FabricaComando.retornarComandoConsultarLivro());
         comandos.put("usu", FabricaComando.retornarComandoConsultarUsuario());
+        comandos.put("obs", FabricaComando.retornarComandoObservar());
         comandos.put("ntf", FabricaComando.retornarComandoConsultarNotificacao());
         comandos.put("sai", FabricaComando.retornarComandoSair());
     }
@@ -36,7 +37,7 @@ public class Servidor {
         } else {
             RetornoComando retorno = FabricaRetorno.retornarComando();
             retorno.setEstado(FabricaEstadoRetorno.inSucessoComandoErrado());
-            retorno.setMensagem("Comando não encontrado.\n");
+            retorno.setMensagem(comandoString);
             return retorno;
         }
 

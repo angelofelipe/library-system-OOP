@@ -3,8 +3,10 @@ package comando.retorno.estado;
 import comando.retorno.IRetornoComando;
 import comando.retorno.RetornoComando;
 
-public class SucessoComandoDevolver implements EstadoRetorno {
-    public void imprimirRetorno(RetornoComando retornoComando) {
-
+public class SucessoComandoDevolver extends Sucesso {
+    public void imprimirRetorno(RetornoComando retorno) {
+        System.out.println("Sucesso para concluir comando 'dev' (devolver).");
+        System.out.println("Usuário: " + retorno.getUsuarioNome());
+        System.out.println("Livro: " + retorno.getLivroTitulo() + "\n");
     }
 }

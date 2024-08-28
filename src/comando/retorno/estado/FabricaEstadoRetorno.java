@@ -49,6 +49,14 @@ public class FabricaEstadoRetorno {
         return new InSucessoComandoConsultarLivro();
     }
 
+    public static EstadoRetorno sucessoObservar(){
+        return new SucessoComandoObservar();
+    }
+
+    public static EstadoRetorno inSucessoObservar(){
+        return new InSucessoComandoObserver();
+    }
+
     public static EstadoRetorno inSucessoComandoErrado(){
         return new InSucessoComandoErrado();
     }
