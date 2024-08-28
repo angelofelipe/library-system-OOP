@@ -26,4 +26,18 @@ public class Reserva {
     public LocalDate getDataReserva() {
         return dataReserva;
     }
+
+    public String toStringComandoUsuario() {
+        String mensagem = "";
+
+        mensagem += "\n\tTítulo: " + livro.getTitulo() + "\n";
+        mensagem += "\tData em que foi reservado: " + toStringDataReservada() + "\n";
+
+        return mensagem;
+    }
+
+    public String toStringDataReservada() {
+        return FabricaGeral.dataToString(dataReserva);
+    }
+
 }

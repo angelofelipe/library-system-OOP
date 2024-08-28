@@ -67,6 +67,55 @@ public abstract class Usuario implements IUsuario, IObserver {
         return false;
     }
 
+    public String toStringConsulta() {
+        String mensagem = "";
+
+        mensagem += "Nome: " + nome + "\n";
+        if (emprestimosCorrentes.size() > 0) {
+            mensagem += "Empréstimos correntes: \n";
+            mensagem += toStringEmprestimosCorrentes();
+        }
+        if (emprestimosPassados.size() > 0) {
+            mensagem += "Empréstimos passados: \n";
+            mensagem += toStringEmprestimosPassados();
+        }
+        if (reservas.size() > 0) {
+            mensagem += "Reservas: \n";
+            mensagem += toStringReservas();
+        }
+
+        return  mensagem;
+    }
+
+    private String toStringEmprestimosCorrentes(){
+        StringBuilder mensagem = new StringBuilder();
+
+        for (Emprestimo emprestimo : emprestimosCorrentes) {
+            mensagem.append(emprestimo.toStringComandoUsuario());
+        }
+
+        return mensagem.toString();
+    }
+
+    private String toStringEmprestimosPassados(){
+        StringBuilder mensagem = new StringBuilder();
+
+        for (Emprestimo emprestimo : emprestimosPassados) {
+            mensagem.append(emprestimo.toStringComandoUsuario());
+        }
+
+        return mensagem.toString();
+    }
+
+    public String toStringReservas() {
+        StringBuilder mensagem = new StringBuilder();
+
+        for (Reserva reserva : reservas)
+            mensagem.append(reserva.toStringComandoUsuario());
+
+        return mensagem.toString();
+    }
+
     public Integer quantasReservas(){ return reservas.size(); }
 
     public boolean tenhoReservaDoLivro(Livro livro) {

@@ -40,8 +40,19 @@ public class Emprestimo {
 //    }
 
     public String toStringComandoUsuario(){
-        // IMPLEMENTAR - USAR FABRICA GERAL PARA CONVERTER DATA
-        return "";
+        String mensagem = "";
+
+        mensagem += "\n\tTítulo livro: " + exemplar.getLivro().getTitulo() + "\n";
+        mensagem += "\tData emprestimo: " + toStrinDataEmprestimo();
+        if (dataEntregue == null) {
+            mensagem += "\tStatus: Em curso.\n";
+            mensagem += "\tData devolução: " + toStrinDataDevolucao() + "\n";
+        } else {
+            mensagem += "\tStatus: Finalizado.\n";
+            mensagem += "\tData entregue: " + toStrinDataEntregue() + "\n";
+        }
+
+        return mensagem;
     }
 
     public String emprestadoPara() {

@@ -140,14 +140,17 @@ public class Biblioteca {
         RetornoComando retorno = FabricaRetorno.retornarComando();
         String mensagem = livro.toStrinConsulta();
         retorno.setMensagem(mensagem);
-        retorno.setEstado(FabricaEstadoRetorno.sucessoConsultarLivro());
         retorno.setLivro(livro);
+        retorno.setEstado(FabricaEstadoRetorno.sucessoConsultarLivro());
         return retorno;
     }
 
     public RetornoComando consultarUsuario(Usuario usuario) {
         RetornoComando retorno = FabricaRetorno.retornarComando();
-        // IMPLEMENTAR FUNÇÃO DE IMPRESSÃO NO USUARIO
+        String mensagem = usuario.toStringConsulta();
+        retorno.setMensagem(mensagem);
+        retorno.setUsuario(usuario);
+        retorno.setEstado(FabricaEstadoRetorno.sucessoConsultarUsuario());
         return retorno;
     }
 
