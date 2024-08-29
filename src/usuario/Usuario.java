@@ -31,7 +31,7 @@ public abstract class Usuario implements IUsuario, IObserver {
     }
 
     // Implementação de IObserver
-    public abstract RetornoComando pegarLivroEmprestado(Usuario usuario, Livro livro, RetornoComando retorno);
+    public abstract RetornoComando pegarLivroEmprestado(Usuario usuario, Livro livro);
 
     public void addLivroObservado(LivroObservado livroObservado) {
         livrosObservados.add(livroObservado);
@@ -55,6 +55,20 @@ public abstract class Usuario implements IUsuario, IObserver {
         return false;
     }
 
+    public String livrosAtrasados() {
+        StringBuilder livrosAtrasodos = new StringBuilder();
+        for (Emprestimo emprestimo : emprestimosCorrentes) {
+            if (emprestimo.estaAtrasado())
+                livrosAtrasodos.append(emprestimo.getTituloLivro()).append(", ");
+        }
+
+        int ultimoIndiceVirgula = livrosAtrasodos.lastIndexOf(", ");
+        if (ultimoIndiceVirgula != -1)
+            livrosAtrasodos.delete(ultimoIndiceVirgula, livrosAtrasodos.length());
+
+        return livrosAtrasodos.toString();
+    }
+
     public boolean chegouLimiteEmprestimos() {
         return limiteEmprestimos <= emprestimosCorrentes.size();
     }
@@ -67,20 +81,33 @@ public abstract class Usuario implements IUsuario, IObserver {
         return false;
     }
 
+    public void devolverExemplarLivro(Livro livro) {
+        Emprestimo emprestimoDevolucao;
+        for (int i = 0; i < emprestimosCorrentes.size(); i++) {
+            emprestimoDevolucao = emprestimosCorrentes.get(i);
+            if (emprestimoDevolucao.temMesmoLivro(livro)) {
+                emprestimosCorrentes.remove(emprestimoDevolucao);
+                emprestimoDevolucao.devolverExemplarLivro();
+                emprestimosPassados.add(emprestimoDevolucao);
+                break;
+            }
+        }
+    }
+
     public String toStringConsulta() {
         String mensagem = "";
 
         mensagem += "Nome: " + nome + "\n";
-        if (emprestimosCorrentes.size() > 0) {
-            mensagem += "Empréstimos correntes: \n";
+        if (!emprestimosCorrentes.isEmpty()) {
+            mensagem += "\nEmpréstimos correntes: \n";
             mensagem += toStringEmprestimosCorrentes();
         }
-        if (emprestimosPassados.size() > 0) {
-            mensagem += "Empréstimos passados: \n";
+        if (!emprestimosPassados.isEmpty()) {
+            mensagem += "\nEmpréstimos passados: \n";
             mensagem += toStringEmprestimosPassados();
         }
-        if (reservas.size() > 0) {
-            mensagem += "Reservas: \n";
+        if (!reservas.isEmpty()) {
+            mensagem += "\nReservas: \n";
             mensagem += toStringReservas();
         }
 
@@ -124,6 +151,20 @@ public abstract class Usuario implements IUsuario, IObserver {
                 return true;
         }
         return false;
+    }
+
+    public  Integer quantasNotificacoes() {
+        Integer qtdNotificacoes = 0;
+
+        for (LivroObservado livroObservado : livrosObservados) {
+            qtdNotificacoes += livroObservado.getNotificacoes();
+        }
+
+        return qtdNotificacoes;
+    }
+
+    protected void seUsuarioTiverReservaRemove(Livro livro) {
+        reservas.removeIf(reserva -> reserva.getLivro() == livro);
     }
 
     // Geters

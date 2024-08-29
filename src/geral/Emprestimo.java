@@ -11,8 +11,10 @@ public class Emprestimo {
     LocalDate dataDevolucao;
     LocalDate dataEntregue;
 
+
     public Emprestimo(Exemplar exemplar, Usuario usuario, Integer diasEmprestados) {
         this.exemplar = exemplar;
+        exemplar.setEmprestimo(this);
         this.usuario = usuario;
         dataEmprestimo = LocalDate.now();
         dataDevolucao = dataEmprestimo.plusDays(diasEmprestados);
@@ -29,21 +31,20 @@ public class Emprestimo {
         return comparacao < 0;
     }
 
-//    public String toStringComandoLivro(){
-//        // IMPLEMENTAR - USAR FABRICA GERAL PARA CONVERTER DATA
-//        String mensagem;
-//
-//        mensagem = "\n\tCódigo:" + exemplar.getCodigo() + "\n";
-//        mensagem += "\t"
-//
-//        return mensagem;
-//    }
+    public void devolverExemplarLivro() {
+        dataEntregue = LocalDate.now();
+        exemplar.devolverExemplarLivro(this);
+    }
+
+    public String getTituloLivro() {
+        return exemplar.getTituloLivro();
+    }
 
     public String toStringComandoUsuario(){
         String mensagem = "";
 
         mensagem += "\n\tTítulo livro: " + exemplar.getLivro().getTitulo() + "\n";
-        mensagem += "\tData emprestimo: " + toStrinDataEmprestimo();
+        mensagem += "\tData emprestimo: " + toStrinDataEmprestimo() + "\n";
         if (dataEntregue == null) {
             mensagem += "\tStatus: Em curso.\n";
             mensagem += "\tData devolução: " + toStrinDataDevolucao() + "\n";
@@ -70,4 +71,5 @@ public class Emprestimo {
     public String toStrinDataEntregue() {
         return FabricaGeral.dataToString(dataEntregue);
     }
+
 }

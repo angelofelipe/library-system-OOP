@@ -10,11 +10,19 @@ import comando.retorno.estado.FabricaEstadoRetorno;
 import java.util.HashMap;
 
 public class Servidor {
-    private HashMap<String, IComando> comandos;
+    private static Servidor instance = null;
+    private final HashMap<String, IComando> comandos;
 
-    public Servidor() {
+    private Servidor() {
         comandos = new HashMap<>();
         iniciarComandos();
+    }
+
+    public static Servidor getInstance() {
+        if (instance == null) {
+            instance = new Servidor();
+        }
+        return instance;
     }
 
     public void iniciarComandos() {

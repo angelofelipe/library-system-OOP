@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class Entrada {
     private String comandoString;
-    private List<String> parametros = new ArrayList<String>();
+    private final List<String> parametros = new ArrayList<String>();
 
     public Entrada() {}
 
@@ -21,16 +21,32 @@ public class Entrada {
         }
     }
 
+    public boolean primeiroParametroInValido() {
+        return getParametro0() == null;
+    }
+
+    public boolean segundoParametroInValido() {
+        return getParametro1() == null;
+    }
+
+    public boolean parametrosInValidos() {
+        return getParametro0() == null || getParametro1() == null;
+    }
+
     // Get parâmetros entradas
     public String getComandoString() {
         return comandoString;
     }
 
     public String getParametro0() {
+        if (parametros.isEmpty())
+            return null;
         return parametros.get(0);
     }
 
     public String getParametro1() {
+        if (parametros.size() < 2)
+            return null;
         return parametros.get(1);
     }
 

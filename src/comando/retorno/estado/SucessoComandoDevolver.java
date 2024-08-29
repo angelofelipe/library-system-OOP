@@ -1,6 +1,5 @@
 package comando.retorno.estado;
 
-import comando.retorno.IRetornoComando;
 import comando.retorno.RetornoComando;
 
 public class SucessoComandoDevolver extends Sucesso {

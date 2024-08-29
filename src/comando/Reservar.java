@@ -12,14 +12,19 @@ import usuario.Usuario;
 public class Reservar implements IComando {
     @Override
     public RetornoComando executar(Entrada entrada) {
-        Biblioteca biblioteca = Biblioteca.getInstance();
-        Usuario usuario = biblioteca.encontrarUsuarioPorCodigo(entrada.getParametro0());
-        Livro livro = biblioteca.encontrarLivroPorCodigo(entrada.getParametro1());
-
         // Verificação da entrada
         RetornoComando retorno = FabricaRetorno.retornarComando();
         EstadoRetorno estadoRetorno = FabricaEstadoRetorno.inSucessoReservar();
         retorno.setEstado(estadoRetorno);
+        if (entrada.parametrosInValidos()) {
+            retorno.setMensagem("Algum parâmetro em falta...");
+            return retorno;
+        }
+
+        Biblioteca biblioteca = Biblioteca.getInstance();
+        Usuario usuario = biblioteca.encontrarUsuarioPorCodigo(entrada.getParametro0());
+        Livro livro = biblioteca.encontrarLivroPorCodigo(entrada.getParametro1());
+
 
         if (usuario == null) {
             String mensagem = "Este usuario não consta no sistema.";

@@ -11,8 +11,8 @@ import java.util.HashSet;
 public class Biblioteca {
     private static Biblioteca instance;
     private Livro ultimoLivroReservado;
-    private HashSet<Usuario> usuarios;
-    private HashSet<Livro> livros;
+    private final HashSet<Usuario> usuarios;
+    private final HashSet<Livro> livros;
 
     private Biblioteca(){
         this.ultimoLivroReservado = null;
@@ -68,27 +68,32 @@ public class Biblioteca {
 
     // Funções de comando chamadas por IComando
     public RetornoComando emprestarLivro(Usuario usuario, Livro livro) {
-        RetornoComando retorno = FabricaRetorno.retornarComando();
-        retorno.setUsuario(usuario);
-        retorno.setLivro(livro);
-
         boolean disponivel = livro.estaDisponivel();
+
         if (disponivel) {
-            retorno.setEstado(FabricaEstadoRetorno.sucessoEmprestar()); // O sucesso tem que ser decidido pelo usuário
-            return usuario.pegarLivroEmprestado(usuario, livro, retorno);
+            return usuario.pegarLivroEmprestado(usuario, livro);
         } else {
+            RetornoComando retorno = FabricaRetorno.retornarComando();
+            retorno.setUsuario(usuario);
+            retorno.setLivro(livro);
             String mensagem = "Livro indisponível...\n";
             mensagem +=  "Tente outro dia quando alguém poderá ter devolvido um exemplar.\n";
             retorno.setMensagem(mensagem);
             retorno.setEstado(FabricaEstadoRetorno.inSucessoEmprestar());
             return retorno;
+
         }
     }
 
     public RetornoComando devolverLivro(Usuario usuario, Livro livro) {
         RetornoComando retorno = FabricaRetorno.retornarComando();
-        // IMPLEMENTAR LÓGICA DE VERIFICAÇÃO DE RETORNO
-        // ADICIONAR INFORMAÇÕES EM RETORNO PARA SEREM IMPRESSAS POR RETORNO
+
+        if (usuario.estouComEsteLivroEmprestado(livro))
+            usuario.devolverExemplarLivro(livro);
+
+        retorno.setUsuario(usuario);
+        retorno.setLivro(livro);
+        retorno.setEstado(FabricaEstadoRetorno.sucessoDevolver());
         return retorno;
     }
 
@@ -156,11 +161,12 @@ public class Biblioteca {
 
     public RetornoComando consultarNotificacao(Usuario usuario) {
         RetornoComando retorno = FabricaRetorno.retornarComando();
-        // IMPLEMENTAR FUNÇÃO DE IMPRESSÃO DE NOTIFICAÇÃO
+        Integer qtdNotificacoes = usuario.quantasNotificacoes();
+        retorno.setMensagem(qtdNotificacoes.toString());
+        retorno.setUsuario(usuario);
+        retorno.setEstado(FabricaEstadoRetorno.sucessoConsultarNotificacao());
         return retorno;
     }
-
-
 
     public RetornoComando sair() {
         return FabricaRetorno.retornarSair();

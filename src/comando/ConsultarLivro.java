@@ -11,14 +11,20 @@ import geral.Livro;
 public class ConsultarLivro implements IComando {
     @Override
     public RetornoComando executar(Entrada entrada) {
+        // Verificação da entrada
+        RetornoComando retorno = FabricaRetorno.retornarComando();
+        EstadoRetorno estadoRetorno = FabricaEstadoRetorno.inSucessoReservar();
+        retorno.setEstado(estadoRetorno);
+        if (entrada.primeiroParametroInValido()) {
+            retorno.setMensagem("Algum parâmetro em falta...");
+            return retorno;
+        }
+
         Biblioteca biblioteca = Biblioteca.getInstance();
         Livro livro = biblioteca.encontrarLivroPorCodigo(entrada.getParametro0());
 
         // Verificação da entrada
         if (livro == null) {
-            RetornoComando retorno = FabricaRetorno.retornarComando();
-            EstadoRetorno estadoRetorno = FabricaEstadoRetorno.inSucessoConsultarLivro();
-            retorno.setEstado(estadoRetorno);
             String mensagem = "Este livro não consta no sistema.";
             retorno.setMensagem(mensagem);
             return retorno;

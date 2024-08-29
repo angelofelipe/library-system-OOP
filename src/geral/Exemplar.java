@@ -30,6 +30,15 @@ public class Exemplar {
         return mensagem;
     }
 
+    public void devolverExemplarLivro(Emprestimo emprestimoDevolucao) {
+        livro.devolverExemplarLivro(emprestimoDevolucao);
+        emprestimo = null;
+    }
+
+    public String getTituloLivro() {
+        return livro.getTitulo();
+    }
+
     // Geters e Seters
     public String getCodigo() {
         return codigo;

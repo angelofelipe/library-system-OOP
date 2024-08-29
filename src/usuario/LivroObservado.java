@@ -4,7 +4,7 @@ import geral.Livro;
 
 public class LivroObservado {
     private Integer notificacoes;
-    private Livro livro;
+    private final Livro livro;
 
     public LivroObservado(Livro livro) {
         this.notificacoes = 0;

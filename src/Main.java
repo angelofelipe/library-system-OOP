@@ -14,7 +14,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String line;
         Entrada entrada = new Entrada();
-        Servidor servidor = new Servidor();
+        Servidor servidor = Servidor.getInstance();
         RetornoComando retorno = null;
 
         while (rodarPrograma.get()) {
