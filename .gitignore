@@ -1,3 +1,12 @@
+# Adding manually
+# Archives
+library-system-OOP.iml
+
+# Files
+out diagrams
+
+#==============================================================================#
+
 # Compiled class file
 *.class
 
@@ -28,7 +37,6 @@ replay_pid*
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-library-system-OOP.iml
 
 ### Eclipse ###
 .apt_generated
