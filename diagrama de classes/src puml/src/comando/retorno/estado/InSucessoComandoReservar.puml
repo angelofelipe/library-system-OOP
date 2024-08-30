@@ -1,0 +1,8 @@
+@startuml
+
+class InSucessoComandoReservar  {
+
+    + imprimirRetorno(RetornoComando): void
+}
+
+@enduml

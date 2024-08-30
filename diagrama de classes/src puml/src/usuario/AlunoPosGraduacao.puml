@@ -1,0 +1,8 @@
+@startuml
+
+class AlunoPosGraduacao  {
+
+    + imprimirRetorno(RetornoComando): void
+}
+
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+
+class Devolver  {
+
+    + imprimirRetorno(RetornoComando): void
+}
+
+@enduml

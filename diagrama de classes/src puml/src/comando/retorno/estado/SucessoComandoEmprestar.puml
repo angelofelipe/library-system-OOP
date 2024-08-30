@@ -1,0 +1,8 @@
+@startuml
+
+class SucessoComandoEmprestar  {
+
+    + imprimirRetorno(RetornoComando): void
+}
+
+@enduml

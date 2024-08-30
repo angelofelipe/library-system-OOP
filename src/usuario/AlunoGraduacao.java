@@ -12,7 +12,6 @@ public class AlunoGraduacao extends Usuario{
     }
 
     public RetornoComando pegarLivroEmprestado(Usuario usuario, Livro livro) {
-        String mensagem = "";
         RetornoComando retorno = FabricaRetorno.retornarComando();
         retorno.setEstado(FabricaEstadoRetorno.inSucessoEmprestar());
         retorno.setUsuario(usuario);
@@ -20,11 +19,10 @@ public class AlunoGraduacao extends Usuario{
 
         if (!usuario.eDevedor()) {
             if (!chegouLimiteEmprestimos()) {
-                Integer qtdReservas = livro.quantasReservas();
-                Integer qtdExemplares = livro.quantosExemplares();
+                Integer exemplaresDisponiveis = livro.quantosExemplaresDisponiveis();
                 boolean tenhoReserva = tenhoReservaDoLivro(livro);
 
-                if (qtdReservas < qtdExemplares || tenhoReserva) {
+                if (exemplaresDisponiveis >= 1 || tenhoReserva) {
                     boolean jaEstouComUmExemplar = estouComEsteLivroEmprestado(livro);
                     if (!jaEstouComUmExemplar) {
                         Emprestimo emprestimo = livro.emprestarLivro(usuario);
@@ -52,7 +50,7 @@ public class AlunoGraduacao extends Usuario{
             }
 
         } else {
-            mensagem = usuario.livrosAtrasados();
+            String mensagem = usuario.livrosAtrasados();
             retorno.setMensagem("Você está precisando entregar algum(ns) livro(s): " + mensagem);
             return retorno;
         }

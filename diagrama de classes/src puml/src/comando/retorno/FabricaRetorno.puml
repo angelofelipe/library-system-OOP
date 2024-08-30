@@ -1,0 +1,8 @@
+@startuml
+
+class FabricaRetorno  {
+
+    + imprimirRetorno(RetornoComando): void
+}
+
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+
+class InSucessoComandoErrado  {
+
+    + imprimirRetorno(RetornoComando): void
+
+}
+
+@enduml

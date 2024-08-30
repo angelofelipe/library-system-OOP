@@ -1,0 +1,8 @@
+@startuml
+
+class Sucesso << (A,#0099dd) abstract>>  {
+
+    + imprimirRetorno(RetornoComando): void
+}
+
+@enduml

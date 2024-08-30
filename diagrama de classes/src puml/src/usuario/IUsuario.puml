@@ -1,0 +1,8 @@
+@startuml
+
+class IUsuario  {
+
+    + imprimirRetorno(RetornoComando): void
+}
+
+@enduml

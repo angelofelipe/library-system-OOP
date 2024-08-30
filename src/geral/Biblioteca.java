@@ -76,8 +76,8 @@ public class Biblioteca {
             RetornoComando retorno = FabricaRetorno.retornarComando();
             retorno.setUsuario(usuario);
             retorno.setLivro(livro);
-            String mensagem = "Livro indisponível...\n";
-            mensagem +=  "Tente outro dia quando alguém poderá ter devolvido um exemplar.\n";
+            String mensagem = "Livro indisponível...";
+            mensagem +=  "\n\tTente outro dia quando alguém poderá ter devolvido um exemplar.\n";
             retorno.setMensagem(mensagem);
             retorno.setEstado(FabricaEstadoRetorno.inSucessoEmprestar());
             return retorno;
@@ -108,6 +108,7 @@ public class Biblioteca {
             if (!usuario.tenhoReservaDoLivro(livro)) {
                 Reserva reserva = new Reserva(usuario, livro);
                 livro.addReserva(reserva);
+                usuario.addReserva(reserva);
                 retorno.setEstado(FabricaEstadoRetorno.sucessoReservar());
 
                 if (ultimoLivroReservado != null) {

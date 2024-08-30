@@ -54,7 +54,7 @@ public class FabricaEstadoRetorno {
     }
 
     public static EstadoRetorno inSucessoObservar(){
-        return new InSucessoComandoObserver();
+        return new InSucessoComandoObservar();
     }
 
     public static EstadoRetorno inSucessoComandoErrado(){

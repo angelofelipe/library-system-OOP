@@ -1,0 +1,8 @@
+@startuml
+
+class IObserver  {
+
+    + imprimirRetorno(RetornoComando): void
+}
+
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+
+class Reservar  {
+
+    + imprimirRetorno(RetornoComando): void
+}
+
+@enduml

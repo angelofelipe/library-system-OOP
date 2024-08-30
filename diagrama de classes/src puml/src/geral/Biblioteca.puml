@@ -1,0 +1,8 @@
+@startuml
+
+class Biblioteca  {
+
+    + imprimirRetorno(RetornoComando): void
+}
+
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+
+class SucessoComandoConsultarNotificacao  {
+
+    + imprimirRetorno(RetornoComando): void
+}
+
+@enduml

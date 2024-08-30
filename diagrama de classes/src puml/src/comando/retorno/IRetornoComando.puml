@@ -1,0 +1,8 @@
+@startuml
+
+class IRetornoComando  {
+
+    + imprimirRetorno(RetornoComando): void
+}
+
+@enduml

@@ -43,6 +43,7 @@ public class Livro {
         emprestimos.add(emprestimo);
     }
 
+    // Futuro - implementar se existe algum exemplar cadastrado
     public Emprestimo emprestarLivro(Usuario usuario) {
         Exemplar exemplar = getExemplarDisponivel();
         if (exemplar != null) {
@@ -77,6 +78,10 @@ public class Livro {
 
     public void removeEmprestimos(Emprestimo emprestimo) {
         emprestimos.remove(emprestimo);
+    }
+
+    public Integer quantosExemplaresDisponiveis(){
+        return quantosExemplares() - quantosEmprestimos() - quantasReservas();
     }
 
     public Integer quantasReservas() { return reservas.size(); }

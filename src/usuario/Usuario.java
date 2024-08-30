@@ -114,6 +114,8 @@ public abstract class Usuario implements IUsuario, IObserver {
         return  mensagem;
     }
 
+    public void addReserva(Reserva reserva) { reservas.add(reserva); }
+
     private String toStringEmprestimosCorrentes(){
         StringBuilder mensagem = new StringBuilder();
 
@@ -140,7 +142,7 @@ public abstract class Usuario implements IUsuario, IObserver {
         for (Reserva reserva : reservas)
             mensagem.append(reserva.toStringComandoUsuario());
 
-        return mensagem.toString();
+        return mensagem.substring(0, mensagem.length() - 1);
     }
 
     public Integer quantasReservas(){ return reservas.size(); }

@@ -17,9 +17,9 @@ java -cp out Main
 ## Viewing the class diagram
 To create the class diagrams, the utility [PlantUML](https://github.com/plantuml/plantuml) was used.
 
-To view them, you can simply run the command:
+To view them, you can simply run the command on directory "diagrama de classes":
 ```bash
-plantuml -o ../"out diagrams" main.puml
+plantuml -o "imagens dos diagramas" main.puml
 ```
 
 It is necessary to have [PlantUML](https://plantuml.com/starting) installed, as well as [GraphViz](https://plantuml.com/graphviz-dot) on which it depends. If you don't know how to do this, click on one of the hyperlinks or see the complete documentation [here](https://plantuml.com/).

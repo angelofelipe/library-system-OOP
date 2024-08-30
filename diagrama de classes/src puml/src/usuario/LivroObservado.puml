@@ -1,0 +1,8 @@
+@startuml
+
+class LivroObservado  {
+
+    + imprimirRetorno(RetornoComando): void
+}
+
+@enduml

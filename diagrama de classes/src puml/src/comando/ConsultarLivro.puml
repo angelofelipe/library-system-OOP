@@ -1,0 +1,8 @@
+@startuml
+
+class ConsultarLivro  {
+
+    + imprimirRetorno(RetornoComando): void
+}
+
+@enduml

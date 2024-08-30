@@ -1,0 +1,8 @@
+@startuml
+
+class SucessoComandoConsultarLivro  {
+
+    + imprimirRetorno(RetornoComando): void
+}
+
+@enduml

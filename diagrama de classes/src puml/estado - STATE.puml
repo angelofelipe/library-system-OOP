@@ -1,0 +1,69 @@
+@startuml
+!include src/comando/retorno/estado/EstadoRetorno.puml
+!include src/comando/retorno/estado/Sucesso.puml
+!include src/comando/retorno/estado/InSucesso.puml
+
+!include src/comando/retorno/estado/FabricaEstadoRetorno.puml
+
+!include src/comando/retorno/estado/InSucessoComandoConsultarLivro.puml
+!include src/comando/retorno/estado/InSucessoComandoConsultarNotificacao.puml
+!include src/comando/retorno/estado/InSucessoComandoConsultarUsuario.puml
+!include src/comando/retorno/estado/InSucessoComandoDevolver.puml
+!include src/comando/retorno/estado/InSucessoComandoEmprestar.puml
+!include src/comando/retorno/estado/InSucessoComandoErrado.puml
+!include src/comando/retorno/estado/InSucessoComandoObservar.puml
+!include src/comando/retorno/estado/InSucessoComandoReservar.puml
+
+!include src/comando/retorno/estado/SucessoComandoConsultarLivro.puml
+!include src/comando/retorno/estado/SucessoComandoConsultarNotificacao.puml
+!include src/comando/retorno/estado/SucessoComandoConsultarUsuario.puml
+!include src/comando/retorno/estado/SucessoComandoDevolver.puml
+!include src/comando/retorno/estado/SucessoComandoEmprestar.puml
+!include src/comando/retorno/estado/SucessoComandoObservar.puml
+!include src/comando/retorno/estado/SucessoComandoReservar.puml
+
+
+
+skinparam dpi 400
+left to right direction
+
+EstadoRetorno <|.. Sucesso
+EstadoRetorno <|.. InSucesso
+
+Sucesso --> SucessoComandoConsultarLivro
+Sucesso --> SucessoComandoConsultarNotificacao
+Sucesso --> SucessoComandoConsultarUsuario
+Sucesso --> SucessoComandoDevolver
+Sucesso --> SucessoComandoEmprestar
+Sucesso --> SucessoComandoObservar
+Sucesso --> SucessoComandoReservar
+
+InSucesso --> InSucessoComandoConsultarLivro
+InSucesso --> InSucessoComandoConsultarNotificacao
+InSucesso --> InSucessoComandoConsultarUsuario
+InSucesso --> InSucessoComandoDevolver
+InSucesso --> InSucessoComandoEmprestar
+InSucesso --> InSucessoComandoErrado
+InSucesso --> InSucessoComandoObservar
+InSucesso --> InSucessoComandoReservar
+
+
+SucessoComandoConsultarLivro -- FabricaEstadoRetorno
+SucessoComandoConsultarNotificacao -- FabricaEstadoRetorno
+SucessoComandoConsultarUsuario -- FabricaEstadoRetorno
+SucessoComandoDevolver -- FabricaEstadoRetorno
+SucessoComandoEmprestar -- FabricaEstadoRetorno
+SucessoComandoObservar -- FabricaEstadoRetorno
+SucessoComandoReservar -- FabricaEstadoRetorno
+
+
+InSucessoComandoConsultarLivro -- FabricaEstadoRetorno
+InSucessoComandoConsultarNotificacao -- FabricaEstadoRetorno
+InSucessoComandoConsultarUsuario -- FabricaEstadoRetorno
+InSucessoComandoDevolver -- FabricaEstadoRetorno
+InSucessoComandoEmprestar -- FabricaEstadoRetorno
+InSucessoComandoErrado -- FabricaEstadoRetorno
+InSucessoComandoObservar -- FabricaEstadoRetorno
+InSucessoComandoReservar -- FabricaEstadoRetorno
+
+@enduml

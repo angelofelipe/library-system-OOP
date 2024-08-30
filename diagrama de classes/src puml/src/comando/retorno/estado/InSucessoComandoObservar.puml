@@ -1,0 +1,8 @@
+@startuml
+
+class InSucessoComandoObservar  {
+
+    + imprimirRetorno(RetornoComando): void
+}
+
+@enduml

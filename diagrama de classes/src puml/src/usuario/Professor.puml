@@ -1,0 +1,8 @@
+@startuml
+
+class Professor  {
+
+    + imprimirRetorno(RetornoComando): void
+}
+
+@enduml

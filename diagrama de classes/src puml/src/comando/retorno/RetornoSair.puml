@@ -1,0 +1,8 @@
+@startuml
+
+class RetornoSair  {
+
+    + imprimirRetorno(RetornoComando): void
+}
+
+@enduml

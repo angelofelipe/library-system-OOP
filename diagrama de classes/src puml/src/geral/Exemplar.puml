@@ -1,0 +1,8 @@
+@startuml
+
+class Exemplar  {
+
+    + imprimirRetorno(RetornoComando): void
+}
+
+@enduml

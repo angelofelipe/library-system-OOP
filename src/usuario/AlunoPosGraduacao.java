@@ -19,11 +19,10 @@ public class AlunoPosGraduacao extends Usuario{
 
         if (!usuario.eDevedor()) {
             if (!chegouLimiteEmprestimos()) {
-                Integer qtdReservas = livro.quantasReservas();
-                Integer qtdExemplares = livro.quantosExemplares();
+                Integer exemplaresDisponiveis = livro.quantosExemplaresDisponiveis();
                 boolean tenhoReserva = tenhoReservaDoLivro(livro);
 
-                if (qtdReservas < qtdExemplares || tenhoReserva) {
+                if (exemplaresDisponiveis >= 1 || tenhoReserva) {
                     boolean jaEstouComUmExemplar = estouComEsteLivroEmprestado(livro);
                     if (!jaEstouComUmExemplar) {
                         Emprestimo emprestimo = livro.emprestarLivro(usuario);

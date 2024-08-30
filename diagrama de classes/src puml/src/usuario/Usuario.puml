@@ -1,0 +1,8 @@
+@startuml
+
+class Usuario  {
+
+    + imprimirRetorno(RetornoComando): void
+}
+
+@enduml

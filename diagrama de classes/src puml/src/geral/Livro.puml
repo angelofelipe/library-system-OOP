@@ -1,0 +1,8 @@
+@startuml
+
+class Livro  {
+
+    + imprimirRetorno(RetornoComando): void
+}
+
+@enduml
