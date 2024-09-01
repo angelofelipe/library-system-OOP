@@ -1,8 +1,8 @@
 @startuml
 
-class Professor  {
-
-    + imprimirRetorno(RetornoComando): void
+class Professor {
+     + Professor(codigo: String, nome: String)
+    + pegarLivroEmprestado(usuario: Usuario, livro: Livro): RetornoComando
 }
 
 @enduml

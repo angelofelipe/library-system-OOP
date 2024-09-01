@@ -1,8 +1,10 @@
 @startuml
 
-class IUsuario  {
-
-    + imprimirRetorno(RetornoComando): void
+class IUsuario <<interface>> {
+    + eDevedor(): boolean
+    + chegouLimiteEmprestimos(): boolean
+    + estouComEsteLivroEmprestado(livro: Livro): boolean
+    + pegarLivroEmprestado(usuario: Usuario, livro: Livro): RetornoComando
 }
 
 @enduml

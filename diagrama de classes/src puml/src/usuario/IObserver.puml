@@ -1,8 +1,8 @@
 @startuml
 
-class IObserver  {
-
-    + imprimirRetorno(RetornoComando): void
+class IOBserver <<interface>> {
+   + addLivroObservado(livroObservado: LivroObservado): void
+    + updateObservadorLivro(livro: Livro): void
 }
 
 @enduml

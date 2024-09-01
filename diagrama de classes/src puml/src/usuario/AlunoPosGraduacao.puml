@@ -1,8 +1,9 @@
 @startuml
 
-class AlunoPosGraduacao  {
-
-    + imprimirRetorno(RetornoComando): void
+class AlunoPosGraduacao extends Usuario {
+    + AlunoPosGraduacao(codigo: String, nome: String)
+    + pegarLivroEmprestado(usuario: Usuario, livro: Livro): RetornoComando
 }
+
 
 @enduml

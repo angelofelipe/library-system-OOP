@@ -1,8 +1,37 @@
 @startuml
 
-class Usuario  {
+class Usuario <<abstract>>{
+    - codigo: String
+    - nome: String
+    - limiteEmprestimos: Integer
+    - tempoEmprestimos: Integer
+    - livrosObservados: HashSet<LivroObservado>
+    - emprestimosPassados: List<Emprestimo>
+    - emprestimosCorrentes: List<Emprestimo>
+    - reservas: HashSet<Reserva>
 
-    + imprimirRetorno(RetornoComando): void
+    + Usuario(codigo: String, nome: String, limiteEmprestimos: Integer, tempoEmprestimos: Integer)
+    + pegarLivroEmprestado(usuario: Usuario, livro: Livro): RetornoComando
+    + addLivroObservado(livroObservado: LivroObservado): void
+    + updateObservadorLivro(livro: Livro): void
+    + eDevedor(): boolean
+    + livrosAtrasados(): String
+    + chegouLimiteEmprestimos(): boolean
+    + estouComEsteLivroEmprestado(livro: Livro): boolean
+    + devolverExemplarLivro(livro: Livro): void
+    + toStringConsulta(): String
+    + addReserva(reserva: Reserva): void
+    + quantasReservas(): Integer
+    + tenhoReservaDoLivro(livro: Livro): boolean
+    + quantasNotificacoes(): Integer
+    + getCodigo(): String
+    + getNome(): String
+    + getLimiteEmprestimos(): Integer
+    + getTempoEmprestimos(): Integer
+    - seUsuarioTiverReservaRemove(livro: Livro): void
+    - toStringEmprestimosCorrentes(): String
+    - toStringEmprestimosPassados(): String
+    - toStringReservas(): String
 }
 
 @enduml

@@ -1,8 +1,13 @@
 @startuml
 
-class Exemplar  {
+class Exemplar {
+    + atributoPublico: Integer
+    - atributoPrivado: String
+    # atributoProtegido: NomeOutraClasse
 
-    + imprimirRetorno(RetornoComando): void
+    + funcaoPublica(Usuario, Livro): void
+    - funcaoPrivada(Integer, String): boolean
+    # funcaoProtegida(ArrayList<Integer>): Integer
 }
 
 @enduml
