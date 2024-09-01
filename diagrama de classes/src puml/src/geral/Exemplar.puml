@@ -1,13 +1,19 @@
 @startuml
 
 class Exemplar {
-    + atributoPublico: Integer
-    - atributoPrivado: String
-    # atributoProtegido: NomeOutraClasse
-
-    + funcaoPublica(Usuario, Livro): void
-    - funcaoPrivada(Integer, String): boolean
-    # funcaoProtegida(ArrayList<Integer>): Integer
+    -String codigo
+    -Livro livro
+    -Emprestimo emprestimo
+    +Exemplar(codigo: String, livro: Livro)
+    +mesmoLivro(livro: Livro): boolean
+    +toStringParaLivro(): String
+    +devolverExemplarLivro(emprestimoDevolucao: Emprestimo): void
+    +getTituloLivro(): String
+    +getCodigo(): String
+    +getLivro(): Livro
+    +isDisponivel(): boolean
+    +getEmprestimo(): Emprestimo
+    +setEmprestimo(emprestimo: Emprestimo): void
 }
 
 @enduml

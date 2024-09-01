@@ -1,13 +1,24 @@
 @startuml
 
 class Livro {
-    + atributoPublico: Integer
-    - atributoPrivado: String
-    # atributoProtegido: NomeOutraClasse
-
-    + funcaoPublica(Usuario, Livro): void
-    - funcaoPrivada(Integer, String): boolean
-    # funcaoProtegida(ArrayList<Integer>): Integer
+    -String codigo
+    -String titulo
+    -String editora
+    -int edicao
+    -int ano
+    -HashSet<String> autores
+    -ArrayList<Exemplar> exemplares
+    -ArrayList<Reserva> reservas
+    +Livro(codigo: String, titulo: String, editora: String, edicao: int, ano: int, autores: HashSet<String>)
+    +addExemplar(exemplar: Exemplar): void
+    +addReserva(reserva: Reserva): void
+    +estaDisponivel(): boolean
+    +equals(livro: Livro): boolean
+    +getCodigo(): String
+    +getTitulo(): String
+    +toStrinConsulta(): String
+    +updateObservers(): void
+    +addObserver(observer: IObserver): void
 }
 
 @enduml

@@ -1,13 +1,9 @@
 @startuml
 
 class Reserva {
-    + atributoPublico: Integer
-    - atributoPrivado: String
-    # atributoProtegido: NomeOutraClasse
-
-    + funcaoPublica(Usuario, Livro): void
-    - funcaoPrivada(Integer, String): boolean
-    # funcaoProtegida(ArrayList<Integer>): Integer
+    +Reserva(usuario: Usuario, livro: Livro)
+    +getUsuario(): Usuario
+    +getLivro(): Livro
 }
 
 @enduml

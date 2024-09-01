@@ -7,7 +7,24 @@ class Biblioteca {
 
     + funcaoPublica(Usuario, Livro): void
     - funcaoPrivada(Integer, String): boolean
-    # funcaoProtegida(ArrayList<Integer>): Integer
+    # funcaoProtegida(ArrayList<Integer>): Integer-Livro ultimoLivroReservado
+        -HashSet<Usuario> usuarios
+        -HashSet<Livro> livros
+        +getInstance(): Biblioteca
+        +addUsuario(usuario: Usuario): void
+        +addLivro(livro: Livro): void
+        +addExemplar(exemplar: Exemplar): void
+        +temEsteLivro(livro: Livro): boolean
+        +encontrarUsuarioPorCodigo(codigo: String): Usuario
+        +encontrarLivroPorCodigo(codigo: String): Livro
+        +emprestarLivro(usuario: Usuario, livro: Livro): RetornoComando
+        +devolverLivro(usuario: Usuario, livro: Livro): RetornoComando
+        +reservarLivro(usuario: Usuario, livro: Livro): RetornoComando
+        +observarLivro(usuario: Usuario, livro: Livro): RetornoComando
+        +consultarLivro(livro: Livro): RetornoComando
+        +consultarUsuario(usuario: Usuario): RetornoComando
+        +consultarNotificacao(usuario: Usuario): RetornoComando
+        +sair(): RetornoComando
 }
 
 @enduml

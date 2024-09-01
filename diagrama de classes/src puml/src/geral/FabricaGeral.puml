@@ -1,13 +1,8 @@
 @startuml
 
 class FabricaGeral {
-    + atributoPublico: Integer
-    - atributoPrivado: String
-    # atributoProtegido: NomeOutraClasse
-
-    + funcaoPublica(Usuario, Livro): void
-    - funcaoPrivada(Integer, String): boolean
-    # funcaoProtegida(ArrayList<Integer>): Integer
+    +criarLivro(codigo: String, titulo: String, editora: String, edicao: int, ano: int, autores: HashSet<String>): Livro
+    +criarExemplar(codigo: String, livro: Livro): Exemplar
 }
 
 @enduml
