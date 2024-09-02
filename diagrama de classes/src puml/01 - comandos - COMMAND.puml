@@ -1,0 +1,27 @@
+@startuml
+skinparam dpi 300
+
+left to right direction
+
+!include src/comando/IComando.puml
+!include src/comando/Emprestar.puml
+!include src/comando/Reservar.puml
+!include src/comando/Devolver.puml
+!include src/comando/Observar.puml
+!include src/comando/ConsultarLivro.puml
+!include src/comando/ConsultarUsuario.puml
+!include src/comando/ConsultarNotificacao.puml
+!include src/comando/Sair.puml
+
+title Comandos Diversos - Padrão Command
+
+IComando <.. Emprestar
+IComando <.. Observar
+IComando <.. Reservar
+IComando <.. Devolver
+IComando <.. ConsultarNotificacao
+IComando <.. ConsultarLivro
+IComando <.. ConsultarUsuario
+IComando <.. Sair
+
+@enduml

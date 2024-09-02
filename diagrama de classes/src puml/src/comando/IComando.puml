@@ -1,13 +1,7 @@
 @startuml
 
-class IComando <<interface>> {
-    + atributoPublico: Integer
-    - atributoPrivado: String
-    # atributoProtegido: NomeOutraClasse
-
-    + funcaoPublica(Usuario, Livro): void
-    - funcaoPrivada(Integer, String): boolean
-    # funcaoProtegida(ArrayList<Integer>): Integer
+class IComando <<(I,#009912) interface>> {
+    + executar(entrada: Entrada): RetornoComando
 }
 
 @enduml

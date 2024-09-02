@@ -5,11 +5,11 @@ import usuario.Usuario;
 import java.time.LocalDate;
 
 public class Emprestimo {
-    Exemplar exemplar;
-    Usuario usuario;
-    LocalDate dataEmprestimo;
-    LocalDate dataDevolucao;
-    LocalDate dataEntregue;
+    private final Exemplar exemplar;
+    private final Usuario usuario;
+    private final LocalDate dataEmprestimo;
+    private final LocalDate dataDevolucao;
+    private LocalDate dataEntregue;
 
 
     public Emprestimo(Exemplar exemplar, Usuario usuario, Integer diasEmprestados) {

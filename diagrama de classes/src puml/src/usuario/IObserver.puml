@@ -1,7 +1,7 @@
 @startuml
 
-class IOBserver <<interface>> {
-   + addLivroObservado(livroObservado: LivroObservado): void
+class IObserver << (I,#009912) interface>> {
+    + addLivroObservado(livroObservado: LivroObservado): void
     + updateObservadorLivro(livro: Livro): void
 }
 

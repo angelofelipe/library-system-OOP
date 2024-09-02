@@ -1,4 +1,6 @@
 @startuml
+skinparam dpi 400
+
 !include src/comando/retorno/estado/EstadoRetorno.puml
 !include src/comando/retorno/estado/Sucesso.puml
 !include src/comando/retorno/estado/InSucesso.puml
@@ -22,10 +24,9 @@
 !include src/comando/retorno/estado/SucessoComandoObservar.puml
 !include src/comando/retorno/estado/SucessoComandoReservar.puml
 
-
-
-skinparam dpi 400
 left to right direction
+
+title Retorno de comandos - Padrão State
 
 EstadoRetorno <|.. Sucesso
 EstadoRetorno <|.. InSucesso

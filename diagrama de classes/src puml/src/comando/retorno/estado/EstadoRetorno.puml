@@ -1,6 +1,6 @@
 @startuml
 
-class EstadoRetorno << (I,#009912) interface>> {
+class EstadoRetorno <<(I,#009912) interface>> {
 
     + imprimirRetorno(RetornoComando): void
 }

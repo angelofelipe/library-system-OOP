@@ -5,9 +5,9 @@ import usuario.Usuario;
 import java.time.LocalDate;
 
 public class Reserva {
-    Usuario usuario;
-    Livro livro;
-    LocalDate dataReserva;
+    private final Usuario usuario;
+    private final Livro livro;
+    private final LocalDate dataReserva;
 
     public Reserva(Usuario usuario, Livro livro) {
         this.usuario = usuario;

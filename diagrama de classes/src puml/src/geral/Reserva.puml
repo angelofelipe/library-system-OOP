@@ -1,6 +1,10 @@
 @startuml
 
 class Reserva {
+    - usuario: Usuario
+    - livro: Livro
+    - dataReserva: LocalDate
+
     +Reserva(usuario: Usuario, livro: Livro)
     +getUsuario(): Usuario
     +getLivro(): Livro

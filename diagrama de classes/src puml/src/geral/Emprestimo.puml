@@ -1,10 +1,16 @@
 @startuml
 
 class Emprestimo {
+    - exemplar: Exemplar
+    - usuario: Usuario
+    - dataEmprestimo: LocalDate
+    - dataDevolucao: LocalDate
+    - dataEntregue: LocalDate
+
     +devolverExemplarLivro(exemplar: Exemplar): void
-        +emprestadoPara(): String
-        +toStrinDataEmprestimo(): String
-        +toStrinDataDevolucao(): String
+    +emprestadoPara(): String
+    +toStrinDataEmprestimo(): String
+    +toStrinDataDevolucao(): String
 }
 
 @enduml

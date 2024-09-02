@@ -1,9 +1,10 @@
 @startuml
 
 class Exemplar {
-    -String codigo
-    -Livro livro
-    -Emprestimo emprestimo
+    - codigo: String
+    - livro: Livro
+    - emprestimo: Emprestimo
+
     +Exemplar(codigo: String, livro: Livro)
     +mesmoLivro(livro: Livro): boolean
     +toStringParaLivro(): String

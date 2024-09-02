@@ -1,6 +1,6 @@
 @startuml
 
-class FabricaEstadoRetorno  << (F,#aa99dd) factory>> {
+class FabricaEstadoRetorno  <<(F,#aa99dd) factory>> {
 
     + imprimirRetorno(RetornoComando): void
 }

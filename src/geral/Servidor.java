@@ -25,7 +25,7 @@ public class Servidor {
         return instance;
     }
 
-    public void iniciarComandos() {
+    private void iniciarComandos() {
         comandos.put("emp", FabricaComando.retornarComandoEmprestar());
         comandos.put("dev", FabricaComando.retornarComandoDevolver());
         comandos.put("res", FabricaComando.retornarComandoReservar());

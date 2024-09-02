@@ -1,7 +1,13 @@
 @startuml
 
-class Servidor{
-    +executarComando(comando: String): RetornoComando
+class Servidor <<(S,#ff00aa) singleton>> {
+    - instance: Servidor
+    - comandos: HashMap<String, IComando>
+
+    + getInstance(): Servidor
+    + invocarComando(entrada: Entrada): RetornoComando
+    - Servidor(): void
+    - iniciarComandos();
 }
 
 @enduml

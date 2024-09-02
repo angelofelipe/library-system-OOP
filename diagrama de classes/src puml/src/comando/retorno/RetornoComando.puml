@@ -1,8 +1,8 @@
 @startuml
 
-class RetornoComando  {
+class RetornoComando <<(A,#0099dd) abstract>> {
 
-    + imprimirRetorno(RetornoComando): void
+    + imprimirRetorno(bool: AtomicBoolean): void
 }
 
 @enduml

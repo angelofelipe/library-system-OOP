@@ -1,8 +1,7 @@
 @startuml
 
-class EstadoRetorno  {
+class Main  {
 
-    + imprimirRetorno(RetornoComando): void
 }
 
 @enduml

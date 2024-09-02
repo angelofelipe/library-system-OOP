@@ -1,0 +1,30 @@
+@startuml
+skinparam dpi 300
+
+!include src/geral/Biblioteca.puml
+!include src/geral/Livro.puml
+!include src/geral/Reserva.puml
+!include src/geral/Exemplar.puml
+!include src/geral/Exemplar.puml
+!include src/geral/Emprestimo.puml
+!include src/usuario/Usuario.puml
+
+hide Usuario methods
+'hide Usuario attributes
+
+title Processamento(Back_End)
+
+Biblioteca o-- Livro
+Usuario " 0..*" <- Biblioteca : tem <
+
+Biblioteca --> Reserva : > new()
+Reserva "0..*" - "1" Livro : "      tem     "
+Usuario "1  " -- "0..3  " Reserva
+
+Livro "1" - "0..*" Emprestimo : "            "
+
+Exemplar "0..*      " -o Livro
+Exemplar "1" -- "1 " Emprestimo
+Usuario o-- "0..*       " Emprestimo
+
+@enduml

@@ -1,6 +1,6 @@
 @startuml
 
-class AlunoGraduacao extends Usuario {
+class AlunoGraduacao {
     + AlunoGraduacao(codigo: String, nome: String)
     + pegarLivroEmprestado(usuario: Usuario, livro: Livro): RetornoComando
 }

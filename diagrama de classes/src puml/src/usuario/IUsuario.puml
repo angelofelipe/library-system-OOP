@@ -1,6 +1,6 @@
 @startuml
 
-class IUsuario <<interface>> {
+class IUsuario << (I,#009912) interface>> {
     + eDevedor(): boolean
     + chegouLimiteEmprestimos(): boolean
     + estouComEsteLivroEmprestado(livro: Livro): boolean

@@ -1,6 +1,6 @@
 @startuml
 
-class Usuario <<abstract>>{
+class Usuario << (A,#0099dd) abstract>>{
     - codigo: String
     - nome: String
     - limiteEmprestimos: Integer

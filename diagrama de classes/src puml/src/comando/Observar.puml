@@ -1,13 +1,7 @@
 @startuml
 
 class Observar {
-    + atributoPublico: Integer
-    - atributoPrivado: String
-    # atributoProtegido: NomeOutraClasse
-
-    + funcaoPublica(Usuario, Livro): void
-    - funcaoPrivada(Integer, String): boolean
-    # funcaoProtegida(ArrayList<Integer>): Integer
+    + executar(entrada Entrada): RetornoComando
 }
 
 @enduml

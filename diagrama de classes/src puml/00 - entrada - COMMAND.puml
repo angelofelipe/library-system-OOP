@@ -1,0 +1,54 @@
+@startuml
+skinparam dpi 300
+
+!include src/Main.puml
+
+!include src/comando/entrada/Entrada.puml
+
+package comandosDiversos(Command) {
+    !include src/comando/IComando.puml
+}
+
+!include src/comando/retorno/RetornoComando.puml
+!include src/comando/retorno/estado/EstadoRetorno.puml
+
+!include src/geral/BancoDados.puml
+!include src/geral/Servidor.puml
+!include src/geral/Livro.puml
+!include src/usuario/Usuario.puml
+
+package processamento(Back_End) {
+    !include src/geral/Biblioteca.puml
+}
+
+title Entrada de Dados - "Front End" - Padrão Command
+hide Biblioteca methods
+
+hide Usuario methods
+hide Livro methods
+
+hide Usuario attributes
+hide Livro attributes
+
+Main -> RetornoComando
+Main --> BancoDados
+BancoDados --> Livro
+BancoDados --> Usuario
+BancoDados --> Biblioteca
+
+Livro <-- Biblioteca
+Usuario <-- Biblioteca
+
+EstadoRetorno --* RetornoComando
+RetornoComando <-- Biblioteca
+
+Entrada <- Main
+Main --> Servidor
+Entrada <-- Servidor
+
+Servidor --> IComando
+
+IComando -> Biblioteca
+
+
+@enduml

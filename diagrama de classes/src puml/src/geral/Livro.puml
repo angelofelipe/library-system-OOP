@@ -1,14 +1,15 @@
 @startuml
 
 class Livro {
-    -String codigo
-    -String titulo
-    -String editora
-    -int edicao
-    -int ano
-    -HashSet<String> autores
-    -ArrayList<Exemplar> exemplares
-    -ArrayList<Reserva> reservas
+    - codigo: String
+    - titulo: String
+    - editora: String
+    -edicao: int
+    - ano: int
+    - autores: HashSet<String>
+    - exemplares: ArrayList<Exemplar>
+    - reservas: ArrayList<Reserva>
+
     +Livro(codigo: String, titulo: String, editora: String, edicao: int, ano: int, autores: HashSet<String>)
     +addExemplar(exemplar: Exemplar): void
     +addReserva(reserva: Reserva): void

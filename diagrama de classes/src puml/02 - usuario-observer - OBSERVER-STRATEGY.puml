@@ -1,0 +1,34 @@
+@startuml
+'skinparam dpi 250
+skinparam dpi 300
+package processamento(Back_End) {
+    !include src/geral/Biblioteca.puml
+}
+!include src/geral/Livro.puml
+!include src/usuario/LivroObservado.puml
+!include src/usuario/IUsuario.puml
+!include src/usuario/IObserver.puml
+!include src/usuario/Usuario.puml
+!include src/usuario/AlunoGraduacao.puml
+!include src/usuario/AlunoPosGraduacao.puml
+!include src/usuario/Professor.puml
+
+title Tipos de Usuario e Observadores - Padrão Observer e Strategy
+
+IUsuario <|.. Usuario
+IObserver <|.. Usuario
+
+Usuario <|--- AlunoGraduacao
+Usuario <|-- AlunoPosGraduacao
+Usuario <|--- Professor
+
+Usuario "             0..*" - "0..*        " Livro
+
+Livro "0..*    " <- Biblioteca : < tem
+Usuario *-> LivroObservado : faz parte de <
+LivroObservado - Biblioteca : < new()
+
+Usuario -- Biblioteca : tem <
+
+
+@enduml

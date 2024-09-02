@@ -1,8 +1,15 @@
 @startuml
 
-class EstadoRetorno  {
+class Entrada  {
+    - comandoString: String
+    - parametros: List<String>
 
-    + imprimirRetorno(RetornoComando): void
+    + processarComando(comando: String): void
+    + primeiroParametroInValido(): boolean
+    + parametrosInValidos(): boolean
+    + getComandoString(): String
+    + getParametro0(): String
+    + getParametro1(): String
 }
 
 @enduml
